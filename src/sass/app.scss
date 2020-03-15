@@ -1,0 +1,88 @@
+/* Colors */
+$primary-blue: #2a6496;
+$seconday-blue: #428bca;
+$tertiary-blue: #357ebd;
+$primary-gray: #dedede;
+$primary-green: #6db36d;
+$white: #fff;
+
+/* Mixin */
+@mixin bg-blue {
+    border-color: $primary-blue;
+    background-image: linear-gradient($seconday-blue, $tertiary-blue);
+}
+
+/* Builder Styles */
+.builder {
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    .btn {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        border-radius: 8px;
+        text-align: center;
+        color: $white;
+    }
+
+    .builder-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    textarea,
+    select {
+        width: 190px;
+    }
+
+    button {
+        width: 215px;
+        max-width: 300px !important;
+        border: 0px;
+    }
+
+    select {
+        padding: 6px;
+        border-radius: 4px;
+        width: 180px;
+        @include bg-blue;
+        color: $white;
+        border: 1px solid $white;
+    }
+
+    .drag-container,
+    .drop-container {
+        flex: 0;
+    }
+
+    .drag-container {
+        width: 100px;
+        margin-right: 50px;
+    }
+
+    .drop-container {
+        width: 225px;
+        height: 400px;
+        padding: 20px;
+        background-color: $primary-gray;
+        border: 1px solid $primary-gray;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sortable-element {
+        max-width: 200px;
+        @extend .btn;
+        @include bg-blue;
+    }
+
+    .submit {
+        @extend .btn;
+        margin-left: 50px;
+        background-color: $primary-green;
+        width: 100px;
+    }
+}

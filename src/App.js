@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import DragContainer from "./components/DragContainer";
 
-function App() {
+import "./sass/app.scss";
+
+const App = () => {
+  const [savedValue, getSavedValue] = useState()
+
+  const onSubmit = () => {
+    getDataFromLocalStorage()
+  };
+
+  const getDataFromLocalStorage = () => {
+    let el = document.querySelector(".drop-container");
+    let elHTML = el.innerHTML;
+    localStorage.setItem("itemsaved", elHTML);
+  }
+
+  useEffect(() => {
+    let getLocalStorage = localStorage.getItem("itemsaved")
+    getSavedValue(getLocalStorage)
+    let el = document.querySelector(".drop-container");
+    el.innerHTML = getLocalStorage
+  }, [savedValue])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main class="builder">
+      <section>
+        <form>
+          <DragContainer />
+        </form>
+      </section>
+      <section>
+        <button onClick={onSubmit} type="submit" className="submit">
+          Save
+        </button>
+      </section>
+    </main>
   );
-}
+};
 
 export default App;

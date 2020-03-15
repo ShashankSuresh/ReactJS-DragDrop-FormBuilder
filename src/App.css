@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.builder-container {
+  display: flex;
+}
+
+.drag-container, .drop-container {
+  flex: 0;
+}
+
+.drag-container {
+  width: 100px;
+}
+
+.drop-container {
+  width: 250px;
+  height: 200px;
+  background-color: pink;
+}
+
+.sortable-element {
+  background: rgb(200, 200, 200);
+  border: 1px solid #000;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+button, textarea, select {
+  width: 150px;
+}
