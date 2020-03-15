@@ -10,8 +10,6 @@ import '../sass/app.scss'
 const DropContainer = () => {
   const [dropList, setDropList] = useState([]);
 
-  console.log(dropList);
-
   return (
     <div>
       <ReactSortable

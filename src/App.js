@@ -24,7 +24,7 @@ const App = () => {
   }, [savedValue])
 
   return (
-    <main class="builder">
+    <main className="builder">
       <section>
         <form>
           <DragContainer />
